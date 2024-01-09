@@ -64,3 +64,6 @@ curl --location 'http://localhost:5000/v1/compliance-issues/' \
 }'
 ```
 - Go to `Testing` in left panel to run all the tests.
+
+## Notes
+- Set environment variables using .devcontainer/devcontainer.env

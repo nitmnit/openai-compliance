@@ -48,7 +48,7 @@ class OpenAIAPIUtil:
         return response.choices[0].message.content
 
 
-class ComplianceContentUtil:
+class HtmlContentUtil:
     """
     Handle transformations for HTML URL to make it readable for AI Assistants
     """
@@ -97,8 +97,8 @@ class ComplianceUtil:
         Returns:
             str: ChatGPT feedback on the compliance
         """
-        compliance = ComplianceContentUtil.fetch_policy_text(compliance_url)
-        pitch = ComplianceContentUtil.fetch_url_text(web_page_url)
+        compliance = HtmlContentUtil.fetch_policy_text(compliance_url)
+        pitch = HtmlContentUtil.fetch_url_text(web_page_url)
         util = OpenAIAPIUtil()
         result = util.analyze_marketing_pitch(compliance, pitch)
         return result
