@@ -50,8 +50,9 @@ Please note that these are just suggestions for rephrasing the sentences to comp
 
 ## Installation
 - Go to your github codespaces settings to add OpenAI API key as secrets: https://github.com/settings/codespaces
-- Create `New Secret` by name `OPENAI_API_KEY` and set the value
-- On github repository page, Go to `Code` and click on `Create codespace for version1`
+- Create `New Secret` by name `OPENAI_API_KEY` and set the value. In repository, select this repository.
+- On github repository page and change branch to `version1`
+- Go to `Code` -> `Codespaces` -> `Create codespace on version1`
 - In codespace, go to `Run and Debug` (Ctrl+Shift+d)
 - Run `Python: Flask`
 - To test API, in terminal within codespaces (Ctrl+`), make a curl request
