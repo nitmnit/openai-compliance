@@ -17,6 +17,7 @@
 			"extensions": [
 				"ms-vscode-remote.vscode-remote-extensionpack",
 				"donjayamanne.python-extension-pack",
+				"ms-python.black-formatter"
 			]
 		}
 	},

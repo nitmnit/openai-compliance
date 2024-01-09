@@ -7,6 +7,16 @@ app = Flask(__name__)
 
 @app.route("/v1/compliance-issues/", methods=["POST"])
 def find_compliance_issues():
+    """
+    Payload: 
+    {
+        "web_pae": "<test url>"
+    }
+    Returns:
+    {
+        "content": "<ChatGPT Feedback>"
+    }
+    """
     data = request.get_json()
     app.logger.info(f"request: /v1/compliance-issues/, payload: {data}")
     if "web_page" not in data:

@@ -25,9 +25,9 @@ class TestOpenAPIUtil(unittest.TestCase):
         pitch_url = "https://www.joinguava.com/"
         compliance = ComplianceContentUtil.fetch_url_text(compliance_url)
         pitch = ComplianceContentUtil.fetch_url_text(pitch_url)
-        # util = OpenAIAPIUtil()
-        # result = util.analyze_marketing_pitch(compliance, pitch)
-        # self.assertIn(result, "duadf")
+        util = OpenAIAPIUtil()
+        result = util.analyze_marketing_pitch(compliance, pitch)
+        self.assertIn(result, "duadf")
 
 
 class TestAPIs(unittest.TestCase):
