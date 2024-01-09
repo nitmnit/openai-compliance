@@ -5,3 +5,5 @@ pytest==7.4.4
 beautifulsoup4==4.12.2
 requests==2.31.0
 inscriptis==2.3.2
+WTForms==3.1.2
+marshmallow==3.20.1

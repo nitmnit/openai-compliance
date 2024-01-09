@@ -3,6 +3,7 @@ import unittest
 import pytest
 from exceptions import SomethingWentWrongWithUrl
 from utils import OpenAIAPIUtil, ComplianceContentUtil
+import config
 from apps import app
 
 
@@ -21,22 +22,26 @@ class TestComplianceContentUtil(unittest.TestCase):
 
 class TestOpenAPIUtil(unittest.TestCase):
     def test_base_case(self):
-        compliance_url = "https://stripe.com/docs/treasury/marketing-treasury"
         pitch_url = "https://www.joinguava.com/"
-        compliance = ComplianceContentUtil.fetch_url_text(compliance_url)
+        compliance = ComplianceContentUtil.fetch_url_text(config.COMPLIANCE_URL)
         pitch = ComplianceContentUtil.fetch_url_text(pitch_url)
         util = OpenAIAPIUtil()
         result = util.analyze_marketing_pitch(compliance, pitch)
-        self.assertIn(result, "duadf")
+        self.assertIn("banking", result)
 
 
 class TestAPIs(unittest.TestCase):
     def setUp(self):
-        app.config['TESTING'] = True
+        app.config["TESTING"] = True
         self.app = app.test_client()
 
     def test_invalid_payload(self):
         data = {"web": "test"}
+        response = self.app.post("/v1/compliance-issues/", json=data)
+        self.assertEqual(response.status_code, 400)
+
+    def test_invalid_url(self):
+        data = {"web_page": "test api"}
         response = self.app.post("/v1/compliance-issues/", json=data)
         self.assertEqual(response.status_code, 400)
 
