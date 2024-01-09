@@ -26,7 +26,6 @@ def find_compliance_issues():
         data = ComplianceIssuesSchema().load(json_data)
     except ValidationError as err:
         return err.messages, 400
-    pitch_url = data.get("web_page")
-    results = {"content": ComplianceUtil.find_compliance(config.COMPLIANCE_URL, pitch_url)}
+    results = {"content": ComplianceUtil.find_compliance(config.COMPLIANCE_URL, data.get("web_page"))}
     app.logger.info(f"response: /v1/compliance-issues/, payload: {data}, response: {results}")
     return jsonify(results), 200
