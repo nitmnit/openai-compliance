@@ -10,7 +10,7 @@ def find_compliance_issues():
     """
     Payload: 
     {
-        "web_pae": "<test url>"
+        "web_page": "<test url>"
     }
     Returns:
     {
