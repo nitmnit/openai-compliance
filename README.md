@@ -63,3 +63,4 @@ curl --location 'http://localhost:5000/v1/compliance-issues/' \
     "web_page": "https://www.joinguava.com/"
 }'
 ```
+- Go to `Testing` in left panel to run all the tests.

@@ -49,4 +49,4 @@ class TestAPIs(unittest.TestCase):
         data = {"web_page": "https://www.joinguava.com/"}
         response = self.app.post("/v1/compliance-issues/", json=data)
         self.assertEqual(response.status_code, 200)
-        self.assertIn("content", response.json())
+        self.assertIn("content", response.json)
