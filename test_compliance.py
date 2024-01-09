@@ -46,7 +46,10 @@ class TestAPIs(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
 
     def test_valid_payload(self):
-        data = {"web_page": "https://www.joinguava.com/"}
+        data = {
+            "web_page": "https://www.joinguava.com/",
+            "guidelines_url": "https://stripe.com/docs/treasury/marketing-treasury",
+        }
         response = self.app.post("/v1/compliance-issues/", json=data)
         self.assertEqual(response.status_code, 200)
-        self.assertIn("content", response.json())
+        self.assertIn("content", response.json)

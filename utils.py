@@ -14,7 +14,8 @@ class OpenAIAPIUtil:
 
     INSTRUCTION = """
     You are highly skilled Lawyer specializing in Marketing Compliance Regulations.
-    You are given compliance guidelines at the end of these instructions. You will be given marketing idea by user.
+    You are given text which contains compliance guidelines among other non-relevant things at the end of these instructions.
+    You will be given marketing idea by user.
     Your job is to find all the sentences in the marketing idea which don't follow the guidelines. When in doubt, point them out.
     Following are the guidelines:
     {guidelines}
@@ -97,7 +98,7 @@ class ComplianceUtil:
         Returns:
             str: ChatGPT feedback on the compliance
         """
-        compliance = ComplianceContentUtil.fetch_policy_text(compliance_url)
+        compliance = ComplianceContentUtil.fetch_url_text(compliance_url)
         pitch = ComplianceContentUtil.fetch_url_text(web_page_url)
         util = OpenAIAPIUtil()
         result = util.analyze_marketing_pitch(compliance, pitch)
